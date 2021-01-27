@@ -16,17 +16,17 @@ int main()
     std::mt19937 eng(rd()); // seed the generator
     std::uniform_int_distribution<> distr(1, 3); // define the range
 
-    std::cout << "Welcome!" << std::endl;
+    std::cout << "Добро пожаловать!" << std::endl;
 
     while(playing)
     {
-        std::cout << "Enter 1 to play Rock, 2 to play Paper, and 3 to play Scissors!: ";
+        std::cout << "Введите 1, чтобы сыграть в Камень, 2, чтобы сыграть в Бумагу, и 3, чтобы сыграть в Ножницы.!: ";
         getline(std::cin, userMoveStr);
 
         while(!(userMoveStr == "1" || userMoveStr == "2" || userMoveStr == "3"))
         {
-            std::cout << "Unknown command! Please try that again..." << std::endl;
-            std::cout << "Enter 1 to play Rock, 2 to play Paper, and 3 to play Scissors!: ";
+            std::cout << "Неизвестная команда! Пожалуйста, попробуйте еще раз..." << std::endl;
+            std::cout << "Введите 1, чтобы сыграть в Камень, 2, чтобы сыграть в Бумагу, и 3, чтобы сыграть в Ножницы.!: ";
             getline(std::cin, userMoveStr);
         }
 
@@ -39,26 +39,26 @@ int main()
         result = userMove - compMove;
 
         if(result == 0)
-            std::cout << "Tie game!" << std::endl;
+            std::cout << "Игра в галстук!" << std::endl;
         else if(result == 1 || result == -2)
         {    
-            std::cout << "Congratulations, you won!" << std::endl;
+            std::cout << "Поздравляю, вы выиграли!" << std::endl;
             playerWins++;
         } else
         {
-            std::cout << "Sorry, you lost!" << std::endl;
+            std::cout << "Извини ты проиграл!" << std::endl;
             compWins++;
         }
 
-        std::cout << "Your move: " << moves[userMove] << " // Computer's move: " << moves[compMove] << std::endl;
-        std::cout << "(Player: " << playerWins << " | Computer: " << compWins << ")" << std::endl;
-        std::cout << "Play again? [y/n]: ";
+        std::cout << "Твой ход: " << moves[userMove] << " // Компьютерный ход: " << moves[compMove] << std::endl;
+        std::cout << "(Игрок: " << playerWins << " | Компьютер: " << compWins << ")" << std::endl;
+        std::cout << "Играть снова? [д/н]: ";
         getline(std::cin, playAgain);
         
         while(!(playAgain == "y" || playAgain == "n"))
         {
-            std::cout << "Unknown command! Please try that again..." << std::endl;
-            std::cout << "Play again? [y/n]: ";
+            std::cout << "Неизвестная команда! Пожалуйста, попробуйте еще раз..." << std::endl;
+            std::cout << "Играть снова? [д/н]: ";
             getline(std::cin, playAgain);      
         }
 
